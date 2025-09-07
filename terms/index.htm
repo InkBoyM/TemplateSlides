@@ -1,316 +1,415 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Terms of Use - Everything You Need to Know – TemplateSlides</title>
-      <link rel="icon" type="image/png" href="https://google.com/favicon.ico">
-
+  <title>Browser Interface</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
-    html, body {
+    * {
       margin: 0;
       padding: 0;
-      height: 100%;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--background-color, #f0f0f0);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.3s, color 0.3s;
+    }
+    #browser {
+      background: var(--theme-color, white);
+      margin: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background: #0f172a;
-      color: #fff;
     }
-
-    .centered {
+    #toolbar {
+      padding: 10px;
+      background: var(--theme-color-secondary, #f8f9fa);
+      border-bottom: 1px solid #ddd;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      width: 100%;
+      gap: 10px;
     }
-
-    #passwordScreen {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #1e293b, #0f172a);
+    #controls {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
+      gap: 5px;
     }
-    #loginBox {
-      background: #1e293b;
-      padding: 2rem 3rem;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      text-align: center;
-      width: 320px;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    #loginBox h1 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    #passwordInput {
-      width: 100%;
-      padding: 12px;
-      font-size: 1rem;
+    .control-btn {
+      background: none;
       border: none;
-      border-radius: 0.5rem;
-      margin-top: 10px;
-      outline: none;
-      background: #334155;
-      color: #fff;
-    }
-    #passwordInput:focus {
-      background: #475569;
-    }
-    #loginBox button {
-      margin-top: 15px;
-      width: 100%;
-      padding: 12px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 0.5rem;
-      background: #3b82f6;
-      color: white;
+      padding: 5px;
       cursor: pointer;
+      border-radius: 4px;
       transition: background 0.3s;
     }
-    #loginBox button:hover {
-      background: #2563eb;
+    .control-btn:hover {
+      background: #e9ecef;
     }
-
-    /* Iframe */
-    #iframeWrapper {
-      width: 100%;
-      height: 100%;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    #inactiveOverlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(15,23,42,0.95);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      z-index: 2000;
-      text-align: center;
-      padding: 20px;
-... (86 lines left)
-Collapse
-message.txt
-5 KB
-the password is S3CURlesUcksfrlol change it however u want
-ryanthestupid — 5:37 PM
-ok
-InkBoyM — 5:37 PM
-Ok
-Image
-ryanthestupid — 5:37 PM
-I WANTY ONE
-I PAY
-InkBoyM — 5:49 PM
-InkBoyM
- started a call that lasted a few seconds. — 5:50 PM
-InkBoyM — 6:44 PM
-@ryanthestupid
-InkBoyM — 7:57 PM
-@ryanthestupid
-﻿
-ryanthestupid
-ryanthestupid
-AMD slut
- 
- 
- 
-i ask stupid questions and fly figure 8 shaped vfr patternwork
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>KSF</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background: #0f172a;
-      color: #fff;
-    }
-
-    .centered {
+    #url-bar {
+      flex: 1;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      width: 100%;
+      gap: 5px;
     }
-
-    #passwordScreen {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-    #loginBox {
-      background: #1e293b;
-      padding: 2rem 3rem;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      text-align: center;
-      width: 320px;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    #loginBox h1 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    #passwordInput {
-      width: 100%;
-      padding: 12px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 0.5rem;
-      margin-top: 10px;
+    #url-input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
       outline: none;
-      background: #334155;
-      color: #fff;
     }
-    #passwordInput:focus {
-      background: #475569;
+    #tabs-bar {
+      display: flex;
+      background: var(--theme-color-secondary, #f8f9fa);
+      padding: 5px 10px 0;
+      border-bottom: 1px solid #ddd;
     }
-    #loginBox button {
-      margin-top: 15px;
-      width: 100%;
-      padding: 12px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 0.5rem;
-      background: #3b82f6;
-      color: white;
+    #tabs-container {
+      display: flex;
+      flex: 1;
+      gap: 5px;
+      overflow-x: auto;
+      max-width: calc(100% - 40px);
+    }
+    .tab {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 15px;
+      background: var(--theme-color-secondary, #e9ecef);
+      border: 1px solid #ddd;
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
       cursor: pointer;
+      min-width: 100px;
       transition: background 0.3s;
     }
-    #loginBox button:hover {
-      background: #2563eb;
+    .tab.active {
+      background: var(--theme-color, white);
     }
-
-    /* Iframe */
-    #iframeWrapper {
-      width: 100%;
-      height: 100%;
+    #content-container {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
     }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    #inactiveOverlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(15,23,42,0.95);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      z-index: 2000;
-      text-align: center;
+    .settings-page {
       padding: 20px;
-      animation: fadeIn 0.4s ease-in-out;
+      color: #333;
     }
-    #inactiveOverlay h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .settings-section {
+      margin-bottom: 20px;
     }
-    #inactiveOverlay p {
-      font-size: 1.2rem;
-      color: #94a3b8;
+    .color-picker {
+      margin: 10px 0;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .dark-mode {
+      --background-color: #121212;
+      --theme-color: #1e1e1e;
+      --theme-color-secondary: #2c2c2c;
+      color: white;
+    }
+    .close-tab {
+      cursor: pointer;
+      color: red;
+      margin-left: 10px;
     }
   </style>
 </head>
 <body>
-  <div id="passwordScreen">
-    <div id="loginBox">
-      <h1>Enter Password</h1>
-      <input type="password" id="passwordInput" placeholder="Password">
-      <button onclick="checkPassword()">Unlock</button>
+  <div id="browser">
+    <div id="toolbar">
+      <div id="controls">
+        <button id="back" class="control-btn">&#9664;</button>
+        <button id="forward" class="control-btn">&#9654;</button>
+        <button id="reload" class="control-btn">&#10227;</button>
+        <button id="fullscreen" class="control-btn">⛶</button>
+      </div>
+      <div id="url-bar">
+        <input type="text" id="url-input" placeholder="Enter URL...">
+        <button id="go">Go</button>
+      </div>
     </div>
+    <div id="tabs-bar">
+      <div id="tabs-container"></div>
+      <button id="new-tab">+</button>
+    </div>
+    <div id="content-container"></div>
   </div>
-
-  <div id="iframeWrapper" style="display:none;">
-    <iframe src="https://inkboym.github.io/prxembed/"></iframe>
-  </div>
-
-  <div id="inactiveOverlay"></div>
-//sneaky inspect element ahh users trying to find the password.
-// its 3am rn and im coding this :cry:
   <script>
-    const correctPassword = "S3CURlesUcksfrlol";
-    const passwordScreen = document.getElementById("passwordScreen");
-    const iframeWrapper = document.getElementById("iframeWrapper");
-    const inactiveOverlay = document.getElementById("inactiveOverlay");
-    let inactiveStart = null;
-    let inactiveTimer = null;
-
-    if (localStorage.getItem("authenticated") === "true") {
-      passwordScreen.style.display = "none";
-      iframeWrapper.style.display = "block";
-    }
-
-    function checkPassword() {
-      const input = document.getElementById("passwordInput").value;
-      if (input === correctPassword) {
-        localStorage.setItem("authenticated", "true");
-        passwordScreen.style.display = "none";
-        iframeWrapper.style.display = "block";
-      } else {
-        alert("Incorrect password");
+    class Browser {
+      constructor() {
+        this.tabs = [];
+        this.activeTabId = null;
+        this.history = new Map();
+        this.currentIndex = new Map();
+        this.settings = this.loadSettings();
+        this.initElements();
+        this.bindEvents();
+        this.applyTheme();
+        
+        if (!localStorage.getItem('browserInitialized')) {
+          localStorage.setItem('browserInitialized', 'true');
+          this.createTab('ksf://settings');
+        } else {
+          this.createTab(this.settings.defaultNewTab);
+        }
       }
-    }
 
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) {
-        inactiveStart = Date.now();
-        inactiveTimer = setInterval(() => {
-          const elapsed = Math.floor((Date.now() - inactiveStart) / 1000);
-          if (elapsed > 10) {
-            inactiveOverlay.style.display = "flex";
-            inactiveOverlay.innerHTML = `
-              <h1>You have been inactive for ${elapsed} seconds</h1>
-              <p>Press <strong>Alt + K</strong> to go back</p>
-            `;
+      loadSettings() {
+        const defaultSettings = {
+          defaultNewTab: 'google.com',
+          themeColor: '#ffffff',
+          themeColorSecondary: '#f8f9fa',
+          darkMode: false
+        };
+        return JSON.parse(localStorage.getItem('browserSettings')) || defaultSettings;
+      }
+
+      saveSettings() {
+        localStorage.setItem('browserSettings', JSON.stringify(this.settings));
+        this.applyTheme();
+      }
+
+      applyTheme() {
+        document.documentElement.style.setProperty('--theme-color', this.settings.themeColor);
+        document.documentElement.style.setProperty('--theme-color-secondary', this.settings.themeColorSecondary);
+        document.body.classList.toggle('dark-mode', this.settings.darkMode);
+      }
+
+      initElements() {
+        this.tabsContainer = document.getElementById('tabs-container');
+        this.contentContainer = document.getElementById('content-container');
+        this.urlInput = document.getElementById('url-input');
+        this.backBtn = document.getElementById('back');
+        this.forwardBtn = document.getElementById('forward');
+        this.reloadBtn = document.getElementById('reload');
+        this.fullscreenBtn = document.getElementById('fullscreen');
+        this.goBtn = document.getElementById('go');
+        this.newTabBtn = document.getElementById('new-tab');
+      }
+
+      bindEvents() {
+        this.backBtn.addEventListener('click', () => this.goBack());
+        this.forwardBtn.addEventListener('click', () => this.goForward());
+        this.reloadBtn.addEventListener('click', () => this.reload());
+        this.fullscreenBtn.addEventListener('click', () => this.toggleFullscreen());
+        this.goBtn.addEventListener('click', () => this.navigate());
+        this.newTabBtn.addEventListener('click', () => this.createTab());
+        this.urlInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            this.navigate();
           }
-        }, 1000);
-      } else {
-        clearInterval(inactiveTimer);
-        inactiveTimer = null;
-        inactiveStart = null;
+        });
       }
-    });
 
-    document.addEventListener("keydown", (e) => {
-      if (e.altKey && e.key.toLowerCase() === "k") {
-        inactiveOverlay.style.display = "none";
+      createTab(initialUrl) {
+        if (this.tabs.length >= 5) return;
+        const tabId = Date.now();
+        const url = initialUrl || this.settings.defaultNewTab;
+        this.tabs.push({ id: tabId, url: url });
+        this.history.set(tabId, [url]);
+        this.currentIndex.set(tabId, 0);
+        this.renderTabs();
+        this.setActiveTab(tabId);
       }
-    });
+
+      setActiveTab(tabId) {
+        this.activeTabId = tabId;
+        const tab = this.tabs.find(t => t.id === tabId);
+        this.urlInput.value = tab.url;
+        this.renderTabs();
+        this.renderContent();
+      }
+
+      renderTabs() {
+        this.tabsContainer.innerHTML = this.tabs.map(tab => `
+          <div class="tab ${tab.id === this.activeTabId ? 'active' : ''}" onclick="browser.setActiveTab(${tab.id})">
+            ${tab.url}
+            <span class="close-tab" onclick="event.stopPropagation(); browser.closeTab(${tab.id})">✖</span>
+          </div>`).join('');
+      }
+
+      renderContent() {
+        const tab = this.tabs.find(t => t.id === this.activeTabId);
+        if (tab.url === 'ksf://settings') {
+          this.renderSettings();
+        } else {
+          // Open a new about:blank tab and inject the embed page
+          const newTab = window.open("about:blank", "_blank");
+
+          const embedPage = `
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Full Screen Embed</title>
+              <style>
+                html, body {
+                  margin: 0;
+                  padding: 0;
+                  height: 100%;
+                  width: 100%;
+                  overflow: hidden;
+                }
+                embed {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100vw;
+                  height: 100vh;
+                  border: none;
+                }
+              </style>
+            </head>
+            <body>
+              <embed 
+                src="https://x.linu.gq:9441/brHmBUDcw/${tab.url.startsWith("http") ? tab.url : "https://" + tab.url}" 
+                type="text/plain" 
+              />
+            </body>
+            </html>
+          `;
+
+          newTab.document.open();
+          newTab.document.write(embedPage);
+          newTab.document.close();
+        }
+      }
+
+      renderSettings() {
+        this.contentContainer.innerHTML = `
+          <div class="settings-page">
+            <h2>Browser Settings</h2>
+            
+            <div class="settings-section">
+              <h3>Default New Tab Page</h3>
+              <select id="default-tab" onchange="browser.updateDefaultTab(this.value)">
+                <option value="google.com" ${this.settings.defaultNewTab === 'google.com' ? 'selected' : ''}>Google</option>
+                <option value="bing.com" ${this.settings.defaultNewTab === 'bing.com' ? 'selected' : ''}>Bing</option>
+                <option value="custom" ${!['google.com', 'bing.com'].includes(this.settings.defaultNewTab) ? 'selected' : ''}>Custom</option>
+              </select>
+              <input type="text" id="custom-url" 
+                placeholder="Enter custom URL" 
+                value="${!['google.com', 'bing.com'].includes(this.settings.defaultNewTab) ? this.settings.defaultNewTab : ''}"
+                onchange="browser.updateCustomUrl(this.value)"
+                style="margin-left: 10px;">
+            </div>
+
+            <div class="settings-section">
+              <h3>Theme Colors</h3>
+              <div class="color-picker">
+                <label>Main Theme Color:</label>
+                <input type="color" value="${this.settings.themeColor}" 
+                  onchange="browser.updateThemeColor(this.value)">
+              </div>
+              <div class="color-picker">
+                <label>Secondary Theme Color:</label>
+                <input type="color" value="${this.settings.themeColorSecondary}" 
+                  onchange="browser.updateThemeColorSecondary(this.value)">
+              </div>
+            </div>
+
+            <div class="settings-section">
+              <h3>Dark Mode</h3>
+              <label>
+                <input type="checkbox" id="dark-mode-toggle" ${this.settings.darkMode ? 'checked' : ''} onchange="browser.toggleDarkMode(this.checked)">
+                Enable Dark Mode
+              </label>
+            </div>
+          </div>`;
+      }
+
+      toggleDarkMode(isEnabled) {
+        this.settings.darkMode = isEnabled;
+        this.saveSettings();
+      }
+
+      closeTab(tabId) {
+        this.tabs = this.tabs.filter(tab => tab.id !== tabId);
+        if (this.activeTabId === tabId) {
+          this.activeTabId = this.tabs.length ? this.tabs[this.tabs.length - 1].id : null;
+        }
+        this.renderTabs();
+        this.renderContent();
+      }
+
+      updateDefaultTab(value) {
+        if (value === 'custom') {
+          const customUrl = document.getElementById('custom-url').value;
+          if (customUrl) {
+            this.settings.defaultNewTab = customUrl;
+          }
+        } else {
+          this.settings.defaultNewTab = value;
+        }
+        this.saveSettings();
+      }
+
+      updateCustomUrl(value) {
+        if (document.getElementById('default-tab').value === 'custom') {
+          this.settings.defaultNewTab = value;
+          this.saveSettings();
+        }
+      }
+
+      updateThemeColor(color) {
+        this.settings.themeColor = color;
+        this.saveSettings();
+      }
+
+      updateThemeColorSecondary(color) {
+        this.settings.themeColorSecondary = color;
+        this.saveSettings();
+      }
+
+      navigate() {
+        const url = this.urlInput.value.trim();
+        const tab = this.tabs.find(t => t.id === this.activeTabId);
+        tab.url = url;
+        this.history.get(tab.id).push(url);
+        this.currentIndex.set(tab.id, this.history.get(tab.id).length - 1);
+        this.renderContent();
+      }
+
+      goBack() {
+        const history = this.history.get(this.activeTabId);
+        if (this.currentIndex.get(this.activeTabId) > 0) {
+          this.currentIndex.set(this.activeTabId, this.currentIndex.get(this.activeTabId) - 1);
+          this.renderContent();
+        }
+      }
+
+      goForward() {
+        const history = this.history.get(this.activeTabId);
+        if (this.currentIndex.get(this.activeTabId) < history.length - 1) {
+          this.currentIndex.set(this.activeTabId, this.currentIndex.get(this.activeTabId) + 1);
+          this.renderContent();
+        }
+      }
+
+      reload() {
+        this.renderContent();
+      }
+
+      toggleFullscreen() {
+        // Fullscreen applies only if there was an iframe/embed in content
+        const iframe = this.contentContainer.querySelector('iframe, embed');
+        if (iframe) {
+          if (!document.fullscreenElement) {
+            iframe.requestFullscreen().catch(err => {
+              console.log(`Error attempting to enable fullscreen: ${err.message}`);
+            });
+          } else {
+            document.exitFullscreen();
+          }
+        }
+      }
+    }
+    const browser = new Browser();
   </script>
 </body>
 </html>
