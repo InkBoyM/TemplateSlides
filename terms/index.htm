@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+//  wsg inspect elementers
 <html>
 <head>
-  <title>Browser Interface</title>
+  <title>e</title> 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
     * {
@@ -237,7 +238,6 @@
         if (tab.url === 'ksf://settings') {
           this.renderSettings();
         } else {
-          // Open a new about:blank tab and inject the embed page
           const newTab = window.open("about:blank", "_blank");
 
           const embedPage = `
@@ -396,7 +396,6 @@
       }
 
       toggleFullscreen() {
-        // Fullscreen applies only if there was an iframe/embed in content
         const iframe = this.contentContainer.querySelector('iframe, embed');
         if (iframe) {
           if (!document.fullscreenElement) {
@@ -413,3 +412,4 @@
   </script>
 </body>
 </html>
+
