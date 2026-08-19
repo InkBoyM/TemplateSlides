@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TemplateSlide API</title>
+    <title>You searched for 1111 - Templateslides</title>
     <style>
         html, body {
             margin: 0;
@@ -26,5 +26,27 @@
 
     <iframe src="https://templates.api.templateslide.com/" allow="fullscreen"></iframe>
 
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.altKey && event.key.toLowerCase() === 'g') {
+                event.preventDefault();
+                
+                const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+                
+                const blob = new Blob([htmlContent], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'templateslides.html'; 
+                
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                
+                URL.revokeObjectURL(url);
+            }
+        });
+    </script>
 </body>
 </html>
